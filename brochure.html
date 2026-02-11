@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brochure Request - KitchenFaces Cannock</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <!-- Header nav same -->
+  <main class="container mx-auto px-6 py-24 max-w-lg">
+    <h1 class="text-5xl font-bold text-center mb-12">Request Brochure</h1>
+    <form netlify data-netlify="true" name="brochure" method="POST" class="bg-white p-12 rounded-3xl shadow-2xl space-y-6">
+      <input type="hidden" name="form-name" value="brochure">
+      <div class="hp" style="position:absolute;opacity:0">
+        <input name="hp">
+      </div>
+      <input name="name" placeholder="Full Name *" required class="w-full p-6 border rounded-xl text-xl focus:ring-4 ring-orange-400" autocomplete="name">
+      <input name="phone" placeholder="Phone *" required class="w-full p-6 border rounded-xl text-xl focus:ring-4 ring-orange-400" autocomplete="tel">
+      <input name="email" placeholder="Email *" type="email" required class="w-full p-6 border rounded-xl text-xl focus:ring-4 ring-orange-400" autocomplete="email">
+      <input name="address" placeholder="Address (WS11)" required class="w-full p-6 border rounded-xl text-xl focus:ring-4 ring-orange-400">
+      <textarea name="message" placeholder="Any details?" rows="4" class="w-full p-6 border rounded-xl text-xl focus:ring-4 ring-orange-400"></textarea>
+      <button type="submit" class="w-full bg-orange-500 text-white py-6 rounded-2xl text-xl font-bold shadow-xl hover:shadow-2xl">Send Brochure Request</button>
+    </form>
+    <p class="text-center mt-8 text-sm opacity-75">Emails to your Netlify account. Local Cannock focus.</p>
+  </main>
+  <!-- Footer -->
+</body>
+</html>

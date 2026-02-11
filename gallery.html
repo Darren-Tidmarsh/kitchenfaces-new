@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - Kitchen Makeovers Cannock | KitchenFaces</title>
+  <meta name="description" content="Before/after kitchen makeovers in Cannock WS11. See our door & worktop transformations.">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <header class="sticky top-0 bg-white/90 backdrop-blur-md z-50 shadow">
+    <!-- Same header nav as index -->
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="/" class="h-16"><img src="images/logo.png" alt="KitchenFaces" class="h-16"></a>
+      <nav class="hidden md:flex space-x-6">
+        <a href="/" class="hover:text-orange-500">Home</a>
+        <a href="gallery.html" class="text-orange-500 font-bold">Gallery</a>
+        <a href="door-styles.html" class="hover:text-orange-500">Doors</a>
+        <a href="worktop-colours.html" class="hover:text-orange-500">Worktops</a>
+        <a href="quote.html" class="hover:text-orange-500">Quote</a>
+        <a href="brochure.html" class="hover:text-orange-500">Brochure</a>
+      </nav>
+      <a href="tel:07933210720" class="bg-orange-500 text-white px-6 py-3 rounded-xl font-bold hover:shadow-xl flex items-center gap-2">
+        Call 0793 321 0720
+      </a>
+    </div>
+  </header>
+  <main class="container mx-auto px-6 py-24">
+    <h1 class="text-5xl font-bold text-center mb-12">Makeover Gallery</h1>
+    <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <label class="md:col-span-4 text-center mb-8">
+        <select id="filter" class="p-4 rounded-xl text-xl bg-white shadow-lg">
+          <option>All</option>
+          <option>Doors</option>
+          <option>Worktops</option>
+        </select>
+      </label>
+      <div class="gallery-grid">
+        <a href="images/testimonial1.jpg" class="block relative overflow-hidden rounded-2xl shadow-xl group cursor-pointer" data-lightbox="gallery">
+          <img src="images/testimonial1.jpg" alt="Kitchen Makeover 1" class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
+          <div class="absolute inset-0 bg-black/30 flex items-end p-4">
+            <h3 class="text-white font-bold text-lg">Kitchen Refresh</h3>
+          </div>
+        </a>
+        <!-- Repeat for testimonial2-10, add data-doors/data-worktops for filter JS -->
+      </div>
+    </div>
+  </main>
+  <footer class="bg-blue-900 text-white py-12 text-center">
+    <div class="container mx-auto px-6">
+      <p>KitchenFaces | 1 The Stables, Norton Canes WS11 9UT | 0793 321 0720</p>
+    </div>
+  </footer>
+  <!-- Lightbox JS -->
+  <script>
+    // Simple lightbox
+    document.querySelectorAll('[data-lightbox]').forEach(el => el.addEventListener('click', e => {
+      e.preventDefault();
+      const img = el.href;
+      const modal = document.createElement('div');
+      modal.innerHTML = `<div class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-8" onclick="this.remove()">
+        <img src="${img}" class="max-w-4xl max-h-screen rounded shadow-2xl">
+        <button onclick="this.parentElement.remove()" class="absolute top-8 right-8 text-4xl text-white">&times;</button>
+      </div>`;
+      document.body.appendChild(modal.firstElementChild);
+    }));
+    // Filter stub (add class hide/show)
+  </script>
+</body>
+</html>
