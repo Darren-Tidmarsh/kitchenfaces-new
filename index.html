@@ -1,0 +1,81 @@
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;KitchenFaces - Kitchen Makeovers Cannock WS11&lt;/title&gt;
+  &lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+    tailwind.config = {
+      theme: { extend: { colors: { kitchen: { 500: '#3B82F6' } } } }
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body class=&quot;bg-gradient-to-br from-blue-600 via-blue-500 to-indigo-600 min-h-screen text-white&quot;&gt;
+  &lt;!-- Hero --&gt;
+  &lt;section class=&quot;container mx-auto px-6 py-24 text-center&quot;&gt;
+    &lt;h1 class=&quot;text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl&quot;&gt;
+      Kitchen Makeovers&lt;br&gt;
+      &lt;span class=&quot;text-yellow-300 text-4xl md:text-6xl&quot;&gt;from &lt;/span&gt;&lt;span class=&quot;text-6xl md:text-8xl font-black&quot;&gt;£2,995&lt;/span&gt;&lt;span class=&quot;text-yellow-300&quot;&gt;*&lt;/span&gt;
+    &lt;/h1&gt;
+    &lt;p class=&quot;text-xl md:text-2xl mb-12 max-w-3xl mx-auto opacity-90&quot;&gt;
+      Affordable kitchen refits &amp; full transformations for Cannock, Norton Canes (WS11) &amp; local areas. 
+      Free home survey &amp; no obligation quote.
+    &lt;/p&gt;
+    &lt;form action=&quot;https://10nl.com/api/v1/leads/quote&quot; method=&quot;POST&quot; class=&quot;bg-white/20 backdrop-blur-lg p-8 md:p-12 rounded-3xl max-w-lg mx-auto mb-16 border border-white/30&quot;&gt;
+      &lt;input type=&quot;hidden&quot; name=&quot;source&quot; value=&quot;website&quot;&gt;
+      &lt;input name=&quot;first_name&quot; placeholder=&quot;First Name *&quot; class=&quot;w-full p-4 mb-4 rounded-xl text-black text-lg font-medium bg-white/80 focus:ring-4 ring-yellow-300&quot; required&gt;
+      &lt;input name=&quot;phone&quot; placeholder=&quot;Phone *&quot; class=&quot;w-full p-4 mb-4 rounded-xl text-black text-lg font-medium bg-white/80 focus:ring-4 ring-yellow-300&quot; required&gt;
+      &lt;input name=&quot;postcode&quot; placeholder=&quot;Postcode (e.g. WS11)&quot; class=&quot;w-full p-4 mb-6 rounded-xl text-black text-lg font-medium bg-white/80 focus:ring-4 ring-yellow-300&quot;&gt;
+      &lt;button type=&quot;submit&quot; class=&quot;w-full bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-300 hover:to-yellow-400 text-black py-5 px-8 rounded-2xl text-xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-300&quot;&gt;
+        Get My Free Quote Today
+      &lt;/button&gt;
+      &lt;p class=&quot;text-xs mt-4 opacity-75&quot;&gt;* T&amp;C apply. Local WS11 area.&lt;/p&gt;
+    &lt;/form&gt;
+  &lt;/section&gt;
+
+  &lt;!-- Services --&gt;
+  &lt;section class=&quot;container mx-auto px-6 py-24&quot;&gt;
+    &lt;h2 class=&quot;text-4xl font-bold text-center mb-20&quot;&gt;What We Do&lt;/h2&gt;
+    &lt;div class=&quot;grid md:grid-cols-3 gap-8&quot;&gt;
+      &lt;div class=&quot;bg-white/10 backdrop-blur-lg p-10 rounded-3xl text-center hover:bg-white/20 transition-all&quot;&gt;
+        &lt;div class=&quot;w-24 h-24 bg-yellow-400 rounded-3xl mx-auto mb-6 flex items-center justify-center text-3xl font-bold text-black&quot;&gt;D&lt;/div&gt;
+        &lt;h3 class=&quot;text-2xl font-bold mb-4&quot;&gt;Budget Doors&lt;/h3&gt;
+        &lt;p&gt;New doors &amp; drawers on existing carcasses. &lt;br&gt;&lt;strong&gt;From £2,995&lt;/strong&gt;&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;bg-white/10 backdrop-blur-lg p-10 rounded-3xl text-center hover:bg-white/20 transition-all&quot;&gt;
+        &lt;div class=&quot;w-24 h-24 bg-green-400 rounded-3xl mx-auto mb-6 flex items-center justify-center text-3xl font-bold text-black&quot;&gt;F&lt;/div&gt;
+        &lt;h3 class=&quot;text-2xl font-bold mb-4&quot;&gt;Full Makeover&lt;/h3&gt;
+        &lt;p&gt;Complete new kitchen install. &lt;br&gt;&lt;strong&gt;From £5,995&lt;/strong&gt;&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;bg-white/10 backdrop-blur-lg p-10 rounded-3xl text-center hover:bg-white/20 transition-all&quot;&gt;
+        &lt;div class=&quot;w-24 h-24 bg-purple-400 rounded-3xl mx-auto mb-6 flex items-center justify-center text-3xl font-bold text-black&quot;&gt;S&lt;/div&gt;
+        &lt;h3 class=&quot;text-2xl font-bold mb-4&quot;&gt;Free Survey&lt;/h3&gt;
+        &lt;p&gt;Home visit, measure &amp; custom design. &lt;br&gt;&lt;strong&gt;No obligation&lt;/strong&gt;&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;!-- Gallery Placeholder --&gt;
+  &lt;section class=&quot;py-24 bg-white/10&quot;&gt;
+    &lt;div class=&quot;container mx-auto px-6 text-center&quot;&gt;
+      &lt;h2 class=&quot;text-4xl font-bold mb-12&quot;&gt;Real Transformations&lt;/h2&gt;
+      &lt;div class=&quot;grid md:grid-cols-4 gap-4&quot;&gt;
+        &lt;div class=&quot;bg-gray-300 h-64 rounded-2xl bg-cover&quot; style=&quot;background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400');&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;bg-gray-300 h-64 rounded-2xl bg-cover&quot; style=&quot;background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400');&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;bg-gray-300 h-64 rounded-2xl bg-cover&quot; style=&quot;background-image: url('https://images.unsplash.com/photo-1558618047-3c8c76caae7e?w=400');&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;bg-gray-300 h-64 rounded-2xl bg-cover&quot; style=&quot;background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400');&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;!-- CTA Footer --&gt;
+  &lt;footer class=&quot;bg-black py-12 text-center&quot;&gt;
+    &lt;div class=&quot;container mx-auto px-6&quot;&gt;
+      &lt;h3 class=&quot;text-3xl font-bold mb-6&quot;&gt;Ready to Transform?&lt;/h3&gt;
+      &lt;p class=&quot;mb-8&quot;&gt;Darren | KitchenFaces | 1 The Stables, Norton Canes WS11 9UT&lt;/p&gt;
+      &lt;a href=&quot;tel:+447393210720&quot; class=&quot;bg-yellow-400 text-black py-4 px-8 rounded-full text-xl font-bold hover:bg-yellow-300&quot;&gt;
+        Call/WhatsApp 0793 321 0720
+      &lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;
+&lt;/html&gt;
