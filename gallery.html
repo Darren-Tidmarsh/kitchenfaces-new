@@ -35,14 +35,26 @@
           <option>Worktops</option>
         </select>
       </label>
-      <div class="gallery-grid">
-        <a href="images/testimonial1.jpg" class="block relative overflow-hidden rounded-2xl shadow-xl group cursor-pointer" data-lightbox="gallery">
-          <img src="images/testimonial1.jpg" alt="Kitchen Makeover 1" class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
-          <div class="absolute inset-0 bg-black/30 flex items-end p-4">
-            <h3 class="text-white font-bold text-lg">Kitchen Refresh</h3>
+      <div class="gallery-grid grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <a href="#" class="block relative rounded-2xl shadow-xl group cursor-pointer" data-before="images/testimonial1.jpg" data-after="images/testimonial2.jpg" data-quote="Stunning Cannock kitchen refresh – doors transformed in days!">
+          <img src="images/testimonial1.jpg" alt="Kitchen before – testimonial 1" class="w-full h-64 object-cover group-hover:scale-105 transition-transform rounded-2xl">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50">
+            <div class="absolute bottom-4 left-4 text-white">
+              <h3 class="text-xl font-bold">Kitchen Refresh</h3>
+              <p class="opacity-90">Before/After</p>
+            </div>
           </div>
         </a>
-        <!-- Repeat for testimonial2-10, add data-doors/data-worktops for filter JS -->
+        <a href="#" data-before="images/testimonial3.jpg" data-after="images/testimonial4.jpg" data-quote="Love my new worktops – local service top notch!">
+          <img src="images/testimonial3.jpg" alt="Kitchen makeover testimonial 2" class="w-full h-64 object-cover group-hover:scale-105 transition-transform rounded-2xl">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50">
+            <div class="absolute bottom-4 left-4 text-white">
+              <h3 class="text-xl font-bold">Worktop Upgrade</h3>
+              <p class="opacity-90">Before/After</p>
+            </div>
+          </div>
+        </a>
+        <!-- Add 8 more pairs/quotes from testimonial5-10 + placeholders -->
       </div>
     </div>
   </main>
@@ -53,18 +65,39 @@
   </footer>
   <!-- Lightbox JS -->
   <script>
-    // Simple lightbox
-    document.querySelectorAll('[data-lightbox]').forEach(el => el.addEventListener('click', e => {
+    // Enhanced carousel lightbox
+    document.querySelectorAll('a[data-before]').forEach(el => el.addEventListener('click', e => {
       e.preventDefault();
-      const img = el.href;
+      const before = el.dataset.before;
+      const after = el.dataset.after;
+      const quote = el.dataset.quote || '';
       const modal = document.createElement('div');
-      modal.innerHTML = `<div class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-8" onclick="this.remove()">
-        <img src="${img}" class="max-w-4xl max-h-screen rounded shadow-2xl">
-        <button onclick="this.parentElement.remove()" class="absolute top-8 right-8 text-4xl text-white">&times;</button>
-      </div>`;
-      document.body.appendChild(modal.firstElementChild);
+      modal.className = 'fixed inset-0 bg-black/95 z-50 flex flex-col items-center justify-center p-8 overflow-auto';
+      modal.innerHTML = `
+        <button onclick="this.parentElement.remove()" class="absolute top-8 right-8 text-4xl text-white p-2 hover:bg-white/20 rounded-full" aria-label="Close">&times;</button>
+        <h2 class="text-3xl font-bold text-white mb-8 text-center">Before / After</h2>
+        <div class="flex gap-4 max-w-6xl w-full">
+          <div class="flex-1">
+            <h3 class="text-xl text-yellow-300 mb-4 text-center">Before</h3>
+            <img src="${before}" class="w-full max-h-96 object-cover rounded-2xl shadow-2xl">
+          </div>
+          <div class="flex-1">
+            <h3 class="text-xl text-green-300 mb-4 text-center">After</h3>
+            <img src="${after}" class="w-full max-h-96 object-cover rounded-2xl shadow-2xl">
+          </div>
+        </div>
+        ${quote ? `<blockquote class="text-white/90 text-lg italic mt-8 max-w-2xl mx-auto p-6 bg-white/10 rounded-2xl">"${quote}"</blockquote>` : ''}
+        <p class="text-white/70 mt-4 text-center">Serving Cannock WS11 – Free survey</p>
+      `;
+      document.body.appendChild(modal);
     }));
-    // Filter stub (add class hide/show)
+    // Filter JS stub
+    document.getElementById('filter')?.addEventListener('change', e => {
+      const val = e.target.value;
+      document.querySelectorAll('.gallery-grid a').forEach(a => {
+        a.style.display = val === 'All' || a.dataset.type === val ? 'block' : 'none';
+      });
+    });
   </script>
 </body>
 </html>
