@@ -144,7 +144,8 @@
         </div>
       </div>
       <a href="pricing.html" class="text-warmgray hover:text-accent transition nav-link" data-page="pricing">Pricing</a>
-      <a href="index.html#quote" class="bg-accent text-white px-5 py-2.5 rounded-full font-medium hover:bg-opacity-90 transition">
+      <a href="contact.html" class="text-warmgray hover:text-accent transition nav-link" data-page="contact">Contact</a>
+      <a href="index.html#quote" class="bg-accent text-white px-6 py-3 rounded-full text-base font-medium hover:bg-opacity-90 transition">
         Free Quote
       </a>
       <a href="brochure.html" class="border-2 border-sage text-sage px-5 py-2.5 rounded-full font-medium hover:bg-sage hover:text-white transition nav-link" data-page="brochure">
@@ -158,10 +159,39 @@
     <a href="vinyl-doors.html" class="block text-warmgray hover:text-accent">Vinyl Doors</a>
     <a href="pvc-doors.html" class="block text-warmgray hover:text-accent">PVC Edged</a>
     <a href="pricing.html" class="block text-warmgray hover:text-accent">Pricing</a>
+    <a href="contact.html" class="block text-warmgray hover:text-accent">Contact</a>
     <a href="index.html#quote" class="block bg-accent text-white px-6 py-3 rounded-full text-center">Free Quote</a>
     <a href="brochure.html" class="block border-2 border-sage text-sage px-6 py-3 rounded-full text-center">Get Brochure</a>
   </nav>
 </header>
+<!-- Sticky Mobile CTA -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 bg-charcoal border-t border-white/10 z-50 flex">
+  <a href="tel:01213188989" class="flex-1 flex items-center justify-center gap-2 py-4 text-white font-semibold text-base hover:bg-sage transition">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+    Call Us
+  </a>
+  <a href="index.html#quote" class="flex-1 flex items-center justify-center gap-2 py-4 bg-accent text-white font-semibold text-base hover:bg-opacity-90 transition">
+    Free Quote
+  </a>
+</div>
+
+<script>
+  // Mobile menu toggle
+  document.getElementById('menu-btn').addEventListener('click', function() {
+    document.getElementById('mobile-nav').classList.toggle('hidden');
+  });
+  
+  // Highlight active page
+  const currentPage = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
+  document.querySelectorAll('.nav-link').forEach(link => {
+    if (link.dataset.page === currentPage || 
+        (currentPage === 'vinyl-doors' || currentPage === 'pvc-doors') && link.dataset.page === 'doors') {
+      link.classList.remove('text-warmgray');
+      link.classList.add('text-accent', 'font-semibold');
+    }
+  });
+</script>
+
 <!-- Sticky Mobile CTA -->
 <div class="md:hidden fixed bottom-0 left-0 right-0 bg-charcoal border-t border-white/10 z-50 flex">
   <a href="tel:01213188989" class="flex-1 flex items-center justify-center gap-2 py-4 text-white font-semibold text-base hover:bg-sage transition">
@@ -425,6 +455,7 @@
     </div>
   </div>
 </footer>
+
 
 
 
