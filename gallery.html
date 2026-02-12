@@ -43,12 +43,14 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: 50%;
-      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      clip-path: inset(0 50% 0 0);
     }
     .ba-slider .after-img img {
-      width: 200%;
-      max-width: none;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
     .ba-slider input[type="range"] {
       position: absolute;
@@ -366,7 +368,8 @@
       
       range.addEventListener('input', (e) => {
         const value = e.target.value;
-        afterImg.style.width = value + '%';
+        const rightClip = 100 - value;
+        afterImg.style.clipPath = `inset(0 ${rightClip}% 0 0)`;
         handle.style.left = value + '%';
       });
     });
