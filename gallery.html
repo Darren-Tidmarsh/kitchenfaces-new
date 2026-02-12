@@ -3,84 +3,348 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery - Kitchen Makeovers Cannock | KitchenFaces</title>
-  <meta name="description" content="Before/after kitchen makeovers in Cannock WS11. See our door & worktop transformations.">
+  <title>Kitchen Transformations Gallery | KitchenFaces Cannock</title>
+  <meta name="description" content="See real kitchen makeovers from KitchenFaces. Before and after transformations in Cannock, Norton Canes & WS11 area.">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            charcoal: '#2D3436',
+            sage: '#4A5D4C',
+            cream: '#FAF9F6',
+            warmgray: '#636E72',
+            accent: '#E17055',
+            gold: '#FDCB6E'
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'DM Sans', sans-serif; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+    
+    /* Before/After Slider */
+    .ba-slider {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+    }
+    .ba-slider img {
+      display: block;
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+    .ba-slider .after-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      overflow: hidden;
+    }
+    .ba-slider .after-img img {
+      width: 200%;
+      max-width: none;
+    }
+    .ba-slider input[type="range"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: ew-resize;
+      z-index: 10;
+    }
+    .ba-slider .slider-handle {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 100%;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      pointer-events: none;
+      z-index: 5;
+    }
+    .ba-slider .slider-handle::before,
+    .ba-slider .slider-handle::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 40px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    .ba-slider .slider-handle::before {
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%232D3436' viewBox='0 0 24 24'%3E%3Cpath d='M8 5v14l-7-7 7-7zm8 0v14l7-7-7-7z'/%3E%3C/svg%3E") center/20px no-repeat;
+    }
+    .ba-slider .slider-handle::after {
+      display: none;
+    }
+    .ba-slider .label {
+      position: absolute;
+      bottom: 1rem;
+      padding: 0.5rem 1rem;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      font-weight: 600;
+      font-size: 0.875rem;
+      border-radius: 0.5rem;
+      z-index: 4;
+    }
+    .ba-slider .label-before { right: 1rem; }
+    .ba-slider .label-after { left: 1rem; }
+  </style>
 </head>
-<body class="bg-gray-50 min-h-screen">
-  <header class="sticky top-0 bg-white/90 backdrop-blur-md z-50 shadow">
-    <!-- Same header nav as index -->
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="/" class="h-16"><img src="images/logo.png" alt="KitchenFaces" class="h-16"></a>
-      <nav class="hidden md:flex space-x-6">
-        <a href="/" class="hover:text-orange-500">Home</a>
-        <a href="gallery.html" class="text-orange-500 font-bold">Gallery</a>
-        <a href="door-styles.html" class="hover:text-orange-500">Doors</a>
-        <a href="worktop-colours.html" class="hover:text-orange-500">Worktops</a>
-        <a href="quote.html" class="hover:text-orange-500">Quote</a>
-        <a href="brochure.html" class="hover:text-orange-500">Brochure</a>
-      </nav>
-      <a href="tel:07933210720" class="bg-orange-500 text-white px-6 py-3 rounded-xl font-bold hover:shadow-xl flex items-center gap-2">
-        Call 0793 321 0720
+<body class="bg-cream text-charcoal">
+
+  <!-- Header -->
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="index-v2.html" class="flex items-center gap-3">
+        <img src="images/logo.png" alt="KitchenFaces" class="h-12 w-auto">
       </a>
+      <button id="menu-btn" class="md:hidden p-2 text-charcoal">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="index-v2.html" class="text-warmgray hover:text-accent transition">Home</a>
+        <a href="gallery.html" class="text-accent font-semibold">Gallery</a>
+        <a href="door-styles.html" class="text-warmgray hover:text-accent transition">Door Styles</a>
+        <a href="worktop-colours.html" class="text-warmgray hover:text-accent transition">Worktops</a>
+        <a href="index-v2.html#quote" class="bg-accent text-white px-6 py-3 rounded-full font-medium hover:bg-opacity-90 transition">
+          Free Quote
+        </a>
+      </nav>
     </div>
+    <nav id="mobile-nav" class="hidden md:hidden bg-white border-t px-4 py-4 space-y-3">
+      <a href="index-v2.html" class="block text-warmgray hover:text-accent">Home</a>
+      <a href="gallery.html" class="block text-accent font-semibold">Gallery</a>
+      <a href="door-styles.html" class="block text-warmgray hover:text-accent">Door Styles</a>
+      <a href="worktop-colours.html" class="block text-warmgray hover:text-accent">Worktops</a>
+      <a href="index-v2.html#quote" class="block bg-accent text-white px-6 py-3 rounded-full font-medium text-center">Free Quote</a>
+    </nav>
   </header>
-  <main class="container mx-auto px-6 py-24">
-    <h1 class="text-5xl font-bold text-center mb-12">Makeover Gallery</h1>
-    <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
-      <label class="md:col-span-4 text-center mb-8">
-        <select id="filter" class="p-4 rounded-xl text-xl bg-white shadow-lg">
-          <option>All</option>
-          <option>Doors</option>
-          <option>Worktops</option>
-        </select>
-      </label>
-      <div class="gallery-grid grid md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <a href="#" class="block relative rounded-2xl shadow-xl group cursor-pointer" data-before="images/testimonial1.jpg" data-after="images/testimonial2.jpg" data-quote="Stunning Cannock kitchen refresh – doors transformed in days!">
-          <img src="images/testimonial1.jpg" alt="Kitchen before – testimonial 1" class="w-full h-64 object-cover group-hover:scale-105 transition-transform rounded-2xl">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/50">
-            <div class="absolute bottom-4 left-4 text-white">
-              <h3 class="text-xl font-bold">Kitchen Refresh</h3>
-              <p class="opacity-90">Before/After</p>
-            </div>
+
+  <!-- Hero -->
+  <section class="bg-charcoal text-white py-16">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Kitchen Transformations</h1>
+      <p class="text-xl text-gray-300 max-w-2xl mx-auto">See real before & after makeovers from local homeowners. Drag the slider to reveal the transformation.</p>
+    </div>
+  </section>
+
+  <!-- Before/After Sliders -->
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-4">Before & After</h2>
+      <p class="text-warmgray text-center mb-12 max-w-2xl mx-auto">Drag the slider left and right to see the dramatic transformation</p>
+      
+      <div class="grid md:grid-cols-2 gap-8 mb-16">
+        <!-- Slider 1: Oak to Modern White -->
+        <div class="ba-slider" data-slider>
+          <img src="images/gallery/before2.jpg" alt="Before - Dated oak kitchen">
+          <div class="after-img">
+            <img src="images/gallery/after3.jpg" alt="After - Modern white kitchen">
           </div>
-        </a>
-        <a href="#" data-before="images/testimonial3.jpg" data-after="images/testimonial4.jpg" data-quote="Love my new worktops – local service top notch!">
-          <img src="images/testimonial3.jpg" alt="Kitchen makeover testimonial 2" class="w-full h-64 object-cover group-hover:scale-105 transition-transform rounded-2xl">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/50">
-            <div class="absolute bottom-4 left-4 text-white">
-              <h3 class="text-xl font-bold">Worktop Upgrade</h3>
-              <p class="opacity-90">Before/After</p>
-            </div>
+          <div class="slider-handle"></div>
+          <span class="label label-before">Before</span>
+          <span class="label label-after">After</span>
+          <input type="range" min="0" max="100" value="50">
+        </div>
+
+        <!-- Slider 2: During to Complete -->
+        <div class="ba-slider" data-slider>
+          <img src="images/gallery/before3.jpg" alt="Before - Kitchen during renovation">
+          <div class="after-img">
+            <img src="images/gallery/after4.jpg" alt="After - Grey kitchen with wood worktops">
           </div>
-        </a>
-        <!-- Add 8 more pairs/quotes from testimonial5-10 + placeholders -->
+          <div class="slider-handle"></div>
+          <span class="label label-before">Before</span>
+          <span class="label label-after">After</span>
+          <input type="range" min="0" max="100" value="50">
+        </div>
       </div>
     </div>
-  </main>
-  <footer class="bg-blue-900 text-white py-12 text-center">
-    <div class="container mx-auto px-6">
-      <p>KitchenFaces | 1 The Stables, Norton Canes WS11 9UT | 0793 321 0720</p>
+  </section>
+
+  <!-- Completed Kitchens Grid -->
+  <section class="py-16 bg-sage/5">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-4">Recent Makeovers</h2>
+      <p class="text-warmgray text-center mb-12">A selection of our completed kitchen transformations</p>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="group relative overflow-hidden rounded-2xl shadow-lg">
+          <img src="images/gallery/after1.jpg" alt="Cream shaker kitchen" class="w-full h-72 object-cover group-hover:scale-105 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition">
+            <div class="absolute bottom-4 left-4 text-white">
+              <p class="font-semibold">Cream Shaker Style</p>
+              <p class="text-sm opacity-80">Light worktops, modern handles</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="group relative overflow-hidden rounded-2xl shadow-lg">
+          <img src="images/gallery/after2.jpg" alt="White modern kitchen" class="w-full h-72 object-cover group-hover:scale-105 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition">
+            <div class="absolute bottom-4 left-4 text-white">
+              <p class="font-semibold">Contemporary White</p>
+              <p class="text-sm opacity-80">Grey worktops, bar handles</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="group relative overflow-hidden rounded-2xl shadow-lg">
+          <img src="images/gallery/after4.jpg" alt="Grey kitchen with wood worktops" class="w-full h-72 object-cover group-hover:scale-105 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition">
+            <div class="absolute bottom-4 left-4 text-white">
+              <p class="font-semibold">Modern Grey</p>
+              <p class="text-sm opacity-80">Wood-effect worktops, matt finish</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="group relative overflow-hidden rounded-2xl shadow-lg">
+          <img src="images/gallery/after5.jpg" alt="White kitchen dark worktops" class="w-full h-72 object-cover group-hover:scale-105 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition">
+            <div class="absolute bottom-4 left-4 text-white">
+              <p class="font-semibold">Classic White</p>
+              <p class="text-sm opacity-80">Dark worktops, modern contrast</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="group relative overflow-hidden rounded-2xl shadow-lg">
+          <img src="images/gallery/after6.jpg" alt="Beige kitchen green walls" class="w-full h-72 object-cover group-hover:scale-105 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition">
+            <div class="absolute bottom-4 left-4 text-white">
+              <p class="font-semibold">Warm Cashmere</p>
+              <p class="text-sm opacity-80">Soft tones, matt slab doors</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="group relative overflow-hidden rounded-2xl shadow-lg">
+          <img src="images/gallery/after7.jpg" alt="Cream curved shaker kitchen" class="w-full h-72 object-cover group-hover:scale-105 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition">
+            <div class="absolute bottom-4 left-4 text-white">
+              <p class="font-semibold">Curved Shaker</p>
+              <p class="text-sm opacity-80">Cream doors, curved corners</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Before Photos -->
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-4">What We Started With</h2>
+      <p class="text-warmgray text-center mb-12">These dated kitchens were transformed into the beautiful spaces above</p>
+      
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="relative overflow-hidden rounded-2xl">
+          <img src="images/gallery/before1.jpg" alt="Before - Dated oak kitchen" class="w-full h-64 object-cover grayscale hover:grayscale-0 transition duration-500">
+          <div class="absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-sm font-medium">Before</div>
+        </div>
+        <div class="relative overflow-hidden rounded-2xl">
+          <img src="images/gallery/before2.jpg" alt="Before - Oak kitchen" class="w-full h-64 object-cover grayscale hover:grayscale-0 transition duration-500">
+          <div class="absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-sm font-medium">Before</div>
+        </div>
+        <div class="relative overflow-hidden rounded-2xl">
+          <img src="images/gallery/before3.jpg" alt="Before - Kitchen renovation" class="w-full h-64 object-cover grayscale hover:grayscale-0 transition duration-500">
+          <div class="absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-sm font-medium">Before</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-sage text-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready for Your Transformation?</h2>
+      <p class="text-xl opacity-90 mb-8">Get a free, no-obligation quote and see what's possible for your kitchen</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="index-v2.html#quote" class="bg-white text-sage px-8 py-4 rounded-full font-semibold text-lg hover:bg-opacity-90 transition">
+          Get Free Quote
+        </a>
+        <a href="tel:07393210720" class="border-2 border-white/50 hover:border-white px-8 py-4 rounded-full font-semibold text-lg transition">
+          Call 07393 210720
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-charcoal text-white py-12">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <img src="images/logo.png" alt="KitchenFaces" class="h-10 mb-4 brightness-0 invert">
+          <p class="text-gray-400 text-sm">Your local kitchen makeover specialist serving Cannock, Norton Canes and surrounding areas.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="index-v2.html" class="hover:text-white transition">Home</a></li>
+            <li><a href="gallery.html" class="hover:text-white transition">Gallery</a></li>
+            <li><a href="door-styles.html" class="hover:text-white transition">Door Styles</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Contact</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="tel:07393210720" class="hover:text-white transition">07393 210720</a></li>
+            <li>Norton Canes, WS11</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Get Started</h4>
+          <a href="index-v2.html#quote" class="inline-block bg-accent text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-opacity-90 transition">
+            Free Quote
+          </a>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-8 text-center text-gray-400 text-sm">
+        <p>© 2026 KitchenFaces. All rights reserved.</p>
+      </div>
     </div>
   </footer>
-  <!-- Lightbox JS -->
-  <script src="https://cdn.jsdelivr.net/npm/fslightbox@2/js/fslightbox.min.js"></script>
+
   <script>
-    // FSLightbox on gallery thumbs (swipe/zoom/arrows)
-    FSLightbox.prototype.open = function() { /* custom if need */ };
-    // Filter
-    document.getElementById('filter')?.addEventListener('change', e => {
-      const val = e.target.value;
-      document.querySelectorAll('.gallery-grid a').forEach(a => {
-        a.style.display = val === 'All' || a.dataset.type === val ? 'block' : 'none';
+    // Mobile menu
+    document.getElementById('menu-btn').addEventListener('click', function() {
+      document.getElementById('mobile-nav').classList.toggle('hidden');
+    });
+
+    // Before/After sliders
+    document.querySelectorAll('[data-slider]').forEach(slider => {
+      const range = slider.querySelector('input[type="range"]');
+      const afterImg = slider.querySelector('.after-img');
+      const handle = slider.querySelector('.slider-handle');
+      
+      range.addEventListener('input', (e) => {
+        const value = e.target.value;
+        afterImg.style.width = value + '%';
+        handle.style.left = value + '%';
       });
     });
-    // Auto B/A pairs for lightbox
-    document.querySelectorAll('a[data-before]').forEach((el, i) => {
-      el.classList.add('fslightbox');
-      el.dataset.fslightbox = 'gallery';
-    });
   </script>
-  <!-- Update links class="fslightbox" data-fslightbox="gallery" href="${after}" data-before="${before}" etc. -->
+
 </body>
 </html>
