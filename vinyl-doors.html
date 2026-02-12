@@ -363,9 +363,113 @@
     </div>
   </footer>
 
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="fixed inset-0 bg-black/90 z-[100] hidden items-center justify-center">
+    <!-- Close button -->
+    <button id="lb-close" class="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 transition z-10">&times;</button>
+    
+    <!-- Previous arrow -->
+    <button id="lb-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-5xl hover:text-gray-300 transition p-4">‹</button>
+    
+    <!-- Image container -->
+    <div class="max-w-4xl max-h-[80vh] mx-auto px-16">
+      <img id="lb-img" src="" alt="" class="max-w-full max-h-[75vh] object-contain rounded-lg shadow-2xl">
+      <p id="lb-caption" class="text-white text-center text-xl font-semibold mt-4"></p>
+      <p id="lb-counter" class="text-gray-400 text-center text-sm mt-1"></p>
+    </div>
+    
+    <!-- Next arrow -->
+    <button id="lb-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-5xl hover:text-gray-300 transition p-4">›</button>
+  </div>
+
   <script>
+    // Mobile menu
     document.getElementById('menu-btn').addEventListener('click', function() {
       document.getElementById('mobile-nav').classList.toggle('hidden');
+    });
+
+    // Lightbox functionality
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lb-img');
+    const lbCaption = document.getElementById('lb-caption');
+    const lbCounter = document.getElementById('lb-counter');
+    const lbClose = document.getElementById('lb-close');
+    const lbPrev = document.getElementById('lb-prev');
+    const lbNext = document.getElementById('lb-next');
+
+    let currentImages = [];
+    let currentIndex = 0;
+
+    // Collect all style images
+    const styleCards = document.querySelectorAll('.style-card');
+    const colourSwatches = document.querySelectorAll('.colour-swatch');
+
+    function openLightbox(images, index) {
+      currentImages = images;
+      currentIndex = index;
+      showImage();
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.add('hidden');
+      lightbox.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    function showImage() {
+      const item = currentImages[currentIndex];
+      lbImg.src = item.src;
+      lbCaption.textContent = item.name;
+      lbCounter.textContent = `${currentIndex + 1} of ${currentImages.length}`;
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % currentImages.length;
+      showImage();
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+      showImage();
+    }
+
+    // Style cards click handlers
+    const styleImages = [];
+    styleCards.forEach((card, i) => {
+      const img = card.querySelector('img');
+      const name = card.querySelector('p').textContent;
+      styleImages.push({ src: img.src, name: name });
+      card.addEventListener('click', () => openLightbox(styleImages, i));
+    });
+
+    // Colour swatches click handlers
+    const colourImages = [];
+    colourSwatches.forEach((swatch, i) => {
+      const img = swatch.querySelector('img');
+      const name = swatch.getAttribute('title') || img.alt;
+      colourImages.push({ src: img.src, name: name });
+      swatch.addEventListener('click', () => openLightbox(colourImages, i));
+    });
+
+    // Event listeners
+    lbClose.addEventListener('click', closeLightbox);
+    lbNext.addEventListener('click', nextImage);
+    lbPrev.addEventListener('click', prevImage);
+
+    // Click outside to close
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.classList.contains('hidden')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') nextImage();
+      if (e.key === 'ArrowLeft') prevImage();
     });
   </script>
 
