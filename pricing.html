@@ -14,7 +14,7 @@
             charcoal: '#2D3436',
             sage: '#4A5D4C',
             cream: '#FAF9F6',
-            warmgray: '#636E72',
+            warmgray: '#4A5568',
             accent: '#E17055',
             gold: '#FDCB6E'
           }
@@ -26,12 +26,16 @@
   <style>
     body { font-family: 'DM Sans', sans-serif; }
     h1, h2, h3 { font-family: 'Playfair Display', serif; }
+    /* Accessibility */
+    *:focus-visible { outline: 3px solid #E17055; outline-offset: 2px; }
+    .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; z-index: 999; }
+    .skip-link:focus { position: fixed; top: 10px; left: 10px; width: auto; height: auto; padding: 12px 24px; background: #2D3436; color: white; border-radius: 8px; font-size: 16px; text-decoration: none; }
   </style>
   <link rel="icon" type="image/png" sizes="32x32" href="images/kitchenfaces-favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/kitchenfaces-favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/kitchenfaces-favicon-180.png">
 </head>
-<body class="bg-cream text-charcoal">
+<body class="bg-cream text-charcoal leading-relaxed">
 
   <!-- Header -->
   <header class="bg-white shadow-sm sticky top-0 z-50">
@@ -117,9 +121,9 @@
             <span class="text-2xl">🏠</span>
           </div>
           <h3 class="text-xl font-bold mb-2">Small Kitchen</h3>
-          <p class="text-warmgray text-sm mb-4">Up to 12 doors</p>
+          <p class="text-warmgray text-base mb-4">Up to 12 doors</p>
           <p class="text-4xl font-bold text-sage mb-2">£800</p>
-          <p class="text-warmgray text-sm">doors only</p>
+          <p class="text-warmgray text-base">doors only</p>
         </div>
 
         <!-- Medium -->
@@ -129,9 +133,9 @@
             <span class="text-2xl">🏡</span>
           </div>
           <h3 class="text-xl font-bold mb-2">Medium Kitchen</h3>
-          <p class="text-warmgray text-sm mb-4">13 to 20 doors</p>
+          <p class="text-warmgray text-base mb-4">13 to 20 doors</p>
           <p class="text-4xl font-bold text-sage mb-2">£1,400</p>
-          <p class="text-warmgray text-sm">doors only</p>
+          <p class="text-warmgray text-base">doors only</p>
         </div>
 
         <!-- Large -->
@@ -140,9 +144,9 @@
             <span class="text-2xl">🏰</span>
           </div>
           <h3 class="text-xl font-bold mb-2">Large Kitchen</h3>
-          <p class="text-warmgray text-sm mb-4">21+ doors</p>
+          <p class="text-warmgray text-base mb-4">21+ doors</p>
           <p class="text-4xl font-bold text-sage mb-2">£1,900</p>
-          <p class="text-warmgray text-sm">doors only</p>
+          <p class="text-warmgray text-base">doors only</p>
         </div>
       </div>
 
@@ -270,22 +274,22 @@
         <div class="text-center">
           <div class="w-14 h-14 bg-sage text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
           <h3 class="font-bold mb-2">Get in Touch</h3>
-          <p class="text-warmgray text-sm">Call, message or fill in the form. Tell me a bit about your kitchen.</p>
+          <p class="text-warmgray text-base">Call, message or fill in the form. Tell me a bit about your kitchen.</p>
         </div>
         <div class="text-center">
           <div class="w-14 h-14 bg-sage text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
           <h3 class="font-bold mb-2">Free Home Visit</h3>
-          <p class="text-warmgray text-sm">I'll measure up, show you samples, and discuss your options.</p>
+          <p class="text-warmgray text-base">I'll measure up, show you samples, and discuss your options.</p>
         </div>
         <div class="text-center">
           <div class="w-14 h-14 bg-sage text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
           <h3 class="font-bold mb-2">Fixed Quote</h3>
-          <p class="text-warmgray text-sm">You get a clear, written quote. No pressure, take your time.</p>
+          <p class="text-warmgray text-base">You get a clear, written quote. No pressure, take your time.</p>
         </div>
         <div class="text-center">
           <div class="w-14 h-14 bg-sage text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">4</div>
           <h3 class="font-bold mb-2">Transformation</h3>
-          <p class="text-warmgray text-sm">We fit your new kitchen – usually in just 1-2 days.</p>
+          <p class="text-warmgray text-base">We fit your new kitchen – usually in just 1-2 days.</p>
         </div>
       </div>
     </div>
@@ -339,11 +343,11 @@
     <div class="grid md:grid-cols-4 gap-8 mb-8">
       <div>
         <img src="images/logo.png" alt="KitchenFaces" class="h-10 mb-4 brightness-0 invert">
-        <p class="text-gray-400 text-sm">Your local kitchen makeover specialist serving Cannock, Norton Canes and surrounding areas.</p>
+        <p class="text-gray-300 text-base">Your local kitchen makeover specialist serving Cannock, Norton Canes and surrounding areas.</p>
       </div>
       <div>
         <h4 class="font-semibold mb-4">Quick Links</h4>
-        <ul class="space-y-2 text-gray-400 text-sm">
+        <ul class="space-y-2 text-gray-300 text-base">
           <li><a href="index.html" class="hover:text-white transition">Home</a></li>
           <li><a href="gallery.html" class="hover:text-white transition">Gallery</a></li>
           <li><a href="vinyl-doors.html" class="hover:text-white transition">Vinyl Doors</a></li>
@@ -353,7 +357,7 @@
       </div>
       <div>
         <h4 class="font-semibold mb-4">Contact</h4>
-        <ul class="space-y-2 text-gray-400 text-sm">
+        <ul class="space-y-2 text-gray-300 text-base">
           <li><a href="tel:01213188989" class="hover:text-white transition">0121 318 8989</a></li>
           <li>Norton Canes, WS11</li>
         </ul>
@@ -368,7 +372,7 @@
         </a>
       </div>
     </div>
-    <div class="border-t border-white/10 pt-8 text-center text-gray-400 text-sm">
+    <div class="border-t border-white/10 pt-8 text-center text-gray-300 text-base">
       <p>© 2026 KitchenFaces. All rights reserved. | 1 The Stables, Norton Canes, WS11 9UT</p>
     </div>
   </div>

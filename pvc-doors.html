@@ -14,7 +14,7 @@
             charcoal: '#2D3436',
             sage: '#4A5D4C',
             cream: '#FAF9F6',
-            warmgray: '#636E72',
+            warmgray: '#4A5568',
             accent: '#E17055',
             gold: '#FDCB6E'
           }
@@ -28,12 +28,16 @@
     h1, h2, h3 { font-family: 'Playfair Display', serif; }
     .colour-swatch { transition: all 0.2s; }
     .colour-swatch:hover { transform: scale(1.08); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+    /* Accessibility */
+    *:focus-visible { outline: 3px solid #E17055; outline-offset: 2px; }
+    .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; z-index: 999; }
+    .skip-link:focus { position: fixed; top: 10px; left: 10px; width: auto; height: auto; padding: 12px 24px; background: #2D3436; color: white; border-radius: 8px; font-size: 16px; text-decoration: none; }
   </style>
   <link rel="icon" type="image/png" sizes="32x32" href="images/kitchenfaces-favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/kitchenfaces-favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/kitchenfaces-favicon-180.png">
 </head>
-<body class="bg-cream text-charcoal">
+<body class="bg-cream text-charcoal leading-relaxed">
 
   <!-- Header -->
   <header class="bg-white shadow-sm sticky top-0 z-50">
@@ -171,7 +175,7 @@
       <!-- Mirror Gloss -->
       <div class="mb-12">
         <h3 class="text-xl font-semibold mb-2 text-gold">Mirror Gloss</h3>
-        <p class="text-gray-400 text-sm mb-6">High-shine reflective finish for a sleek, modern look</p>
+        <p class="text-gray-300 text-base mb-6">High-shine reflective finish for a sleek, modern look</p>
         <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-7 gap-3">
           <div class="colour-swatch rounded-lg overflow-hidden cursor-pointer" title="Mirror Gloss White">
             <img src="images/laminate/Mirror Gloss/Mirror-Gloss-White.jfif" alt="Mirror Gloss White" class="w-full h-20 object-cover">
@@ -207,7 +211,7 @@
       <!-- Uni Colours -->
       <div class="mb-12">
         <h3 class="text-xl font-semibold mb-2 text-gold">Uni Colours</h3>
-        <p class="text-gray-400 text-sm mb-6">Clean, classic whites – timeless and bright</p>
+        <p class="text-gray-300 text-base mb-6">Clean, classic whites – timeless and bright</p>
         <div class="grid grid-cols-4 sm:grid-cols-5 gap-3">
           <div class="colour-swatch rounded-lg overflow-hidden cursor-pointer" title="Alpine White">
             <img src="images/laminate/Uni Colours/Alpine-White.jpg" alt="Alpine White" class="w-full h-20 object-cover">
@@ -235,7 +239,7 @@
       <!-- Grey Tones -->
       <div class="mb-12">
         <h3 class="text-xl font-semibold mb-2 text-gold">Grey Tones</h3>
-        <p class="text-gray-400 text-sm mb-6">The most popular palette – from soft grey to deep graphite</p>
+        <p class="text-gray-300 text-base mb-6">The most popular palette – from soft grey to deep graphite</p>
         <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-3">
           <div class="colour-swatch rounded-lg overflow-hidden cursor-pointer" title="Alabaster White">
             <img src="images/laminate/Grey Tones/Alabaster-White.jpg" alt="Alabaster White" class="w-full h-16 object-cover">
@@ -303,7 +307,7 @@
       <!-- Muted Colours -->
       <div>
         <h3 class="text-xl font-semibold mb-2 text-gold">Muted Colours</h3>
-        <p class="text-gray-400 text-sm mb-6">On-trend shades – sage greens, dusty blues and warm accents</p>
+        <p class="text-gray-300 text-base mb-6">On-trend shades – sage greens, dusty blues and warm accents</p>
         <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-3">
           <div class="colour-swatch rounded-lg overflow-hidden cursor-pointer" title="Sage Green">
             <img src="images/laminate/Muted Colours/Sage-Green.jpg" alt="Sage Green" class="w-full h-16 object-cover">
@@ -418,11 +422,11 @@
     <div class="grid md:grid-cols-4 gap-8 mb-8">
       <div>
         <img src="images/logo.png" alt="KitchenFaces" class="h-10 mb-4 brightness-0 invert">
-        <p class="text-gray-400 text-sm">Your local kitchen makeover specialist serving Cannock, Norton Canes and surrounding areas.</p>
+        <p class="text-gray-300 text-base">Your local kitchen makeover specialist serving Cannock, Norton Canes and surrounding areas.</p>
       </div>
       <div>
         <h4 class="font-semibold mb-4">Quick Links</h4>
-        <ul class="space-y-2 text-gray-400 text-sm">
+        <ul class="space-y-2 text-gray-300 text-base">
           <li><a href="index.html" class="hover:text-white transition">Home</a></li>
           <li><a href="gallery.html" class="hover:text-white transition">Gallery</a></li>
           <li><a href="vinyl-doors.html" class="hover:text-white transition">Vinyl Doors</a></li>
@@ -432,7 +436,7 @@
       </div>
       <div>
         <h4 class="font-semibold mb-4">Contact</h4>
-        <ul class="space-y-2 text-gray-400 text-sm">
+        <ul class="space-y-2 text-gray-300 text-base">
           <li><a href="tel:01213188989" class="hover:text-white transition">0121 318 8989</a></li>
           <li>Norton Canes, WS11</li>
         </ul>
@@ -447,7 +451,7 @@
         </a>
       </div>
     </div>
-    <div class="border-t border-white/10 pt-8 text-center text-gray-400 text-sm">
+    <div class="border-t border-white/10 pt-8 text-center text-gray-300 text-base">
       <p>© 2026 KitchenFaces. All rights reserved. | 1 The Stables, Norton Canes, WS11 9UT</p>
     </div>
   </div>

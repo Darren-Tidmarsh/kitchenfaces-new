@@ -14,7 +14,7 @@
             charcoal: '#2D3436',
             sage: '#4A5D4C',
             cream: '#FAF9F6',
-            warmgray: '#636E72',
+            warmgray: '#4A5568',
             accent: '#E17055',
             gold: '#FDCB6E'
           }
@@ -30,12 +30,16 @@
     .hero-gradient { background: linear-gradient(135deg, #2D3436 0%, #4A5D4C 100%); }
     .before-after { position: relative; overflow: hidden; }
     .before-after img { transition: opacity 0.3s; }
+    /* Accessibility */
+    *:focus-visible { outline: 3px solid #E17055; outline-offset: 2px; }
+    .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; z-index: 999; }
+    .skip-link:focus { position: fixed; top: 10px; left: 10px; width: auto; height: auto; padding: 12px 24px; background: #2D3436; color: white; border-radius: 8px; font-size: 16px; text-decoration: none; }
   </style>
   <link rel="icon" type="image/png" sizes="32x32" href="images/kitchenfaces-favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/kitchenfaces-favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/kitchenfaces-favicon-180.png">
 </head>
-<body class="bg-cream text-charcoal">
+<body class="bg-cream text-charcoal leading-relaxed">
 
   <!-- Header -->
   <header class="bg-white shadow-sm sticky top-0 z-50">
@@ -114,7 +118,7 @@
             Call 0121 318 8989
           </a>
         </div>
-        <p class="mt-6 text-gray-400 text-sm">✓ Free home survey &nbsp; ✓ No obligation &nbsp; ✓ From £2,995</p>
+        <p class="mt-6 text-gray-300 text-base">✓ Free home survey &nbsp; ✓ No obligation &nbsp; ✓ From £2,995</p>
       </div>
     </div>
   </section>
@@ -125,19 +129,19 @@
       <div class="flex flex-wrap justify-center gap-8 md:gap-16 text-center">
         <div>
           <p class="text-3xl font-bold text-sage">500+</p>
-          <p class="text-warmgray text-sm">Kitchens Transformed</p>
+          <p class="text-warmgray text-base">Kitchens Transformed</p>
         </div>
         <div>
           <p class="text-3xl font-bold text-sage">1-2</p>
-          <p class="text-warmgray text-sm">Days Average Fitting</p>
+          <p class="text-warmgray text-base">Days Average Fitting</p>
         </div>
         <div>
           <p class="text-3xl font-bold text-sage">50%</p>
-          <p class="text-warmgray text-sm">Savings vs Full Refit</p>
+          <p class="text-warmgray text-base">Savings vs Full Refit</p>
         </div>
         <div>
           <p class="text-3xl font-bold text-sage">5★</p>
-          <p class="text-warmgray text-sm">Customer Reviews</p>
+          <p class="text-warmgray text-base">Customer Reviews</p>
         </div>
       </div>
     </div>
@@ -249,7 +253,7 @@
         </div>
       </div>
 
-      <p class="text-center text-warmgray text-sm mb-6">Door-only makeovers. Worktops, plinths & extras priced separately.</p>
+      <p class="text-center text-warmgray text-base mb-6">Door-only makeovers. Worktops, plinths & extras priced separately.</p>
       
       <div class="text-center">
         <a href="pricing.html" class="inline-flex items-center gap-2 bg-sage text-white px-8 py-4 rounded-full font-semibold hover:bg-opacity-90 transition">
@@ -368,7 +372,7 @@
         </button>
 
         <p id="hq-status" class="text-center text-base text-gray-300 mt-4 hidden"></p>
-        <p class="text-center text-sm text-gray-400 mt-4">
+        <p class="text-center text-base text-gray-300 mt-4">
           ✓ No spam &nbsp; ✓ No pressure &nbsp; ✓ Just a friendly chat
         </p>
       </form>
@@ -469,11 +473,11 @@
     <div class="grid md:grid-cols-4 gap-8 mb-8">
       <div>
         <img src="images/logo.png" alt="KitchenFaces" class="h-10 mb-4 brightness-0 invert">
-        <p class="text-gray-400 text-sm">Your local kitchen makeover specialist serving Cannock, Norton Canes and surrounding areas.</p>
+        <p class="text-gray-300 text-base">Your local kitchen makeover specialist serving Cannock, Norton Canes and surrounding areas.</p>
       </div>
       <div>
         <h4 class="font-semibold mb-4">Quick Links</h4>
-        <ul class="space-y-2 text-gray-400 text-sm">
+        <ul class="space-y-2 text-gray-300 text-base">
           <li><a href="index.html" class="hover:text-white transition">Home</a></li>
           <li><a href="gallery.html" class="hover:text-white transition">Gallery</a></li>
           <li><a href="vinyl-doors.html" class="hover:text-white transition">Vinyl Doors</a></li>
@@ -483,7 +487,7 @@
       </div>
       <div>
         <h4 class="font-semibold mb-4">Contact</h4>
-        <ul class="space-y-2 text-gray-400 text-sm">
+        <ul class="space-y-2 text-gray-300 text-base">
           <li><a href="tel:01213188989" class="hover:text-white transition">0121 318 8989</a></li>
           <li>Norton Canes, WS11</li>
         </ul>
@@ -498,7 +502,7 @@
         </a>
       </div>
     </div>
-    <div class="border-t border-white/10 pt-8 text-center text-gray-400 text-sm">
+    <div class="border-t border-white/10 pt-8 text-center text-gray-300 text-base">
       <p>© 2026 KitchenFaces. All rights reserved. | 1 The Stables, Norton Canes, WS11 9UT</p>
     </div>
   </div>
