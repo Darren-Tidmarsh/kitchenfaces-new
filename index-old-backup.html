@@ -1,0 +1,119 @@
+<!-- Properly added HTML comment by Henry on 2026-02-11 09:42 UTC -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KitchenFaces - Kitchen Makeovers Cannock WS11</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { kitchen: { 500: '#3B82F6' } } } }
+  </script>
+</head>
+<body class="bg-gradient-to-br from-blue-600 via-blue-500 to-indigo-600 min-h-screen text-white">
+  <!-- Logo -->
+  <header class="sticky top-0 bg-white/90 backdrop-blur-md z-50 shadow">
+  <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="/" class="h-16 w-auto"><img src="images/logo.png" alt="KitchenFaces Cannock" class="h-16"></a>
+     <button id="hamburger" class="md:hidden text-2xl p-2">☰</button>
+  <nav id="mobile-nav" class="hidden md:flex space-x-6 text-lg text-gray-900 md:static absolute top-full left-0 w-full bg-white shadow-lg md:shadow-none p-4 md:p-0 md:block">
+      <a href="/" class="hover:text-orange-500 font-bold">Home</a>
+      <a href="gallery.html" class="hover:text-orange-500">Gallery</a>
+      <div class="relative group">
+  <button class="hover:text-orange-500 text-lg font-bold">Doors</button>
+  <div class="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 border border-gray-200">
+    <a href="pvc-edged.html" class="block px-6 py-3 hover:bg-orange-50 text-gray-900 rounded-t-xl">PVC Edged</a>
+    <a href="vinyl-overview.html" class="block px-6 py-3 hover:bg-orange-50 text-gray-900 rounded-b-xl">Vinyl</a>
+  </div>
+</div>
+      <a href="worktop-colours.html" class="hover:text-orange-500">Worktops</a>
+      <a href="quote.html" class="hover:text-orange-500">Quote</a>
+      <a href="brochure.html" class="hover:text-orange-500">Brochure</a>
+    </nav>
+    <a href="tel:07933210720" class="bg-orange-500 text-white px-6 py-3 rounded-xl font-bold text-lg hover:shadow-xl min-h-[52px] flex items-center gap-2">
+      Call 0793 321 0720
+    </a>
+  </div>
+</header>
+  <!-- Hero -->
+  <section class="container mx-auto px-6 py-24 text-center">
+    <h1 class="text-5xl md:text-7xl font-bold mb-6 drop-shadow-2xl">
+      Kitchen Makeovers<br>
+      <span class="text-yellow-300 text-4xl md:text-6xl">from </span><span class="text-6xl md:text-8xl font-black">£2,995</span><span class="text-yellow-300">*</span>
+    </h1>
+    <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto opacity-90">
+      Affordable kitchen refits & full transformations for Cannock, Norton Canes (WS11) & local areas. 
+      Free home survey & no obligation quote.
+    </p>
+    <form action="https://10nl.com/api/v1/leads/quote" method="POST" class="bg-white/20 backdrop-blur-lg p-8 md:p-12 rounded-3xl max-w-lg mx-auto mb-16 border border-white/30">
+      <input type="hidden" name="source" value="website">
+      <input name="first_name" placeholder="First Name *" class="w-full p-4 mb-4 rounded-xl text-black text-lg font-medium bg-white/80 focus:ring-4 ring-yellow-300" required>
+      <input name="phone" placeholder="Phone *" class="w-full p-4 mb-4 rounded-xl text-black text-lg font-medium bg-white/80 focus:ring-4 ring-yellow-300" required>
+      <input name="postcode" placeholder="Postcode (e.g. WS11)" class="w-full p-4 mb-6 rounded-xl text-black text-lg font-medium bg-white/80 focus:ring-4 ring-yellow-300">
+      <button type="submit" class="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-300 hover:to-yellow-400 text-black py-5 px-8 rounded-2xl text-xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-300">
+        Get My Free Quote Today
+      </button>
+      <p class="text-xs mt-4 opacity-75">* T&C apply. Local WS11 area.</p>
+    </form>
+  </section>
+
+  <!-- Services -->
+  <section class="container mx-auto px-6 py-24">
+    <h2 class="text-4xl font-bold text-center mb-20">What We Do</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white/10 backdrop-blur-lg p-10 rounded-3xl text-center hover:bg-white/20 transition-all">
+        <div class="w-24 h-24 bg-yellow-400 rounded-3xl mx-auto mb-6 flex items-center justify-center text-3xl font-bold text-black">D</div>
+        <h3 class="text-2xl font-bold mb-4">Budget Doors</h3>
+        <p>New doors & drawers on existing carcasses. <br><strong>From £2,995</strong></p>
+      </div>
+      <div class="bg-white/10 backdrop-blur-lg p-10 rounded-3xl text-center hover:bg-white/20 transition-all">
+        <div class="w-24 h-24 bg-green-400 rounded-3xl mx-auto mb-6 flex items-center justify-center text-3xl font-bold text-black">F</div>
+        <h3 class="text-2xl font-bold mb-4">Full Makeover</h3>
+        <p>Complete new kitchen install. <br><strong>From £5,995</strong></p>
+      </div>
+      <div class="bg-white/10 backdrop-blur-lg p-10 rounded-3xl text-center hover:bg-white/20 transition-all">
+        <div class="w-24 h-24 bg-purple-400 rounded-3xl mx-auto mb-6 flex items-center justify-center text-3xl font-bold text-black">S</div>
+        <h3 class="text-2xl font-bold mb-4">Free Survey</h3>
+        <p>Home visit, measure & custom design. <br><strong>No obligation</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <!-- Customer Testimonials -->
+  <section class="py-24 bg-white/10">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-4xl font-bold mb-12">Customer Testimonials</h2>
+      <div class="grid md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-7xl mx-auto">
+        <img src="images/testimonial1.jpg" alt="Customer Kitchen 1" class="h-64 w-full object-cover rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-300">
+        <img src="images/testimonial2.jpg" alt="Customer Kitchen 2" class="h-64 w-full object-cover rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-300">
+        <img src="images/testimonial3.jpg" alt="Customer Kitchen 3" class="h-64 w-full object-cover rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-300">
+        <img src="images/testimonial4.jpg" alt="Customer Kitchen 4" class="h-64 w-full object-cover rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-300">
+        <img src="images/testimonial5.jpg" alt="Customer Kitchen 5" class="h-64 w-full object-cover rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-300">
+        <img src="images/testimonial6.jpg" alt="Customer Kitchen 6" class="h-64 w-full object-cover rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-300">
+        <img src="images/testimonial7.jpg" alt="Customer Kitchen 7" class="h-64 w-full object-cover rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-300">
+        <img src="images/testimonial8.jpg" alt="Customer Kitchen 8" class="h-64 w-full object-cover rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-300">
+        <img src="images/testimonial9.jpg" alt="Customer Kitchen 9" class="h-64 w-full object-cover rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-300">
+        <img src="images/testimonial10.jpg" alt="Customer Kitchen 10" class="h-64 w-full object-cover rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-300">
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Footer -->
+  <footer class="bg-black py-12 text-center">
+    <div class="container mx-auto px-6">
+      <h3 class="text-3xl font-bold mb-6">Ready to Transform?</h3>
+      <p class="mb-8 text-lg">Darren | KitchenFaces | 1 The Stables, Norton Canes WS11 9UT | Local WS11 Specialist</p>
+      <a href="tel:+447393210720" class="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-300 hover:to-yellow-400 text-black py-4 px-10 rounded-full text-xl font-bold shadow-2xl hover:shadow-3xl transition-all inline-block">
+        Call/WhatsApp Now 0793 321 0720
+      </a>
+    </div>
+  </footer>
+</body>
+</html>
+<script>
+const hamburger = document.getElementById(\"hamburger\");
+const mobileMenu = document.getElementById(\"mobile-menu\");
+hamburger.onclick = () => mobileMenu.classList.toggle(\"hidden\");
+</script>
