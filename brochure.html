@@ -32,35 +32,61 @@
 
   <!-- Header -->
   <header class="bg-white shadow-sm sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-      <a href="index.html" class="flex items-center gap-3">
-        <img src="images/logo.png" alt="KitchenFaces" class="h-12 w-auto">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="images/logo.png" alt="KitchenFaces" class="h-12 w-auto">
+    </a>
+    <button id="menu-btn" class="md:hidden p-2 text-charcoal">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+    <nav class="hidden md:flex items-center gap-6">
+      <a href="index.html" class="text-warmgray hover:text-accent transition nav-link" data-page="index">Home</a>
+      <a href="gallery.html" class="text-warmgray hover:text-accent transition nav-link" data-page="gallery">Gallery</a>
+      <div class="relative group">
+        <span class="text-warmgray hover:text-accent transition cursor-pointer nav-link" data-page="doors">Door Styles ▾</span>
+        <div class="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-44 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+          <a href="vinyl-doors.html" class="block px-4 py-2 hover:bg-cream text-warmgray">Vinyl Doors</a>
+          <a href="pvc-doors.html" class="block px-4 py-2 hover:bg-cream text-warmgray">PVC Edged</a>
+        </div>
+      </div>
+      <a href="pricing.html" class="text-warmgray hover:text-accent transition nav-link" data-page="pricing">Pricing</a>
+      <a href="index.html#quote" class="bg-accent text-white px-5 py-2.5 rounded-full font-medium hover:bg-opacity-90 transition">
+        Free Quote
       </a>
-      <button id="menu-btn" class="md:hidden p-2 text-charcoal">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
-      <nav class="hidden md:flex items-center gap-6">
-        <a href="index.html" class="text-warmgray hover:text-accent transition">Home</a>
-        <a href="gallery.html" class="text-warmgray hover:text-accent transition">Gallery</a>
-        <a href="vinyl-doors.html" class="text-warmgray hover:text-accent transition">Vinyl Doors</a>
-        <a href="index.html#quote" class="bg-accent text-white px-5 py-2.5 rounded-full font-medium hover:bg-opacity-90 transition">
-          Free Quote
-        </a>
-        <a href="brochure.html" class="border-2 border-sage text-sage px-5 py-2.5 rounded-full font-medium bg-sage/5">
-          Get Brochure
-        </a>
-      </nav>
-    </div>
-    <nav id="mobile-nav" class="hidden md:hidden bg-white border-t px-4 py-4 space-y-3">
-      <a href="index.html" class="block text-warmgray">Home</a>
-      <a href="gallery.html" class="block text-warmgray">Gallery</a>
-      <a href="vinyl-doors.html" class="block text-warmgray">Vinyl Doors</a>
-      <a href="index.html#quote" class="block bg-accent text-white px-6 py-3 rounded-full text-center">Free Quote</a>
-      <a href="brochure.html" class="block border-2 border-sage text-sage px-6 py-3 rounded-full text-center bg-sage/5">Get Brochure</a>
+      <a href="brochure.html" class="border-2 border-sage text-sage px-5 py-2.5 rounded-full font-medium hover:bg-sage hover:text-white transition nav-link" data-page="brochure">
+        Get Brochure
+      </a>
     </nav>
-  </header>
+  </div>
+  <nav id="mobile-nav" class="hidden md:hidden bg-white border-t px-4 py-4 space-y-3">
+    <a href="index.html" class="block text-warmgray hover:text-accent">Home</a>
+    <a href="gallery.html" class="block text-warmgray hover:text-accent">Gallery</a>
+    <a href="vinyl-doors.html" class="block text-warmgray hover:text-accent">Vinyl Doors</a>
+    <a href="pvc-doors.html" class="block text-warmgray hover:text-accent">PVC Edged</a>
+    <a href="pricing.html" class="block text-warmgray hover:text-accent">Pricing</a>
+    <a href="index.html#quote" class="block bg-accent text-white px-6 py-3 rounded-full text-center">Free Quote</a>
+    <a href="brochure.html" class="block border-2 border-sage text-sage px-6 py-3 rounded-full text-center">Get Brochure</a>
+  </nav>
+</header>
+<script>
+  // Mobile menu toggle
+  document.getElementById('menu-btn').addEventListener('click', function() {
+    document.getElementById('mobile-nav').classList.toggle('hidden');
+  });
+  
+  // Highlight active page
+  const currentPage = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
+  document.querySelectorAll('.nav-link').forEach(link => {
+    if (link.dataset.page === currentPage || 
+        (currentPage === 'vinyl-doors' || currentPage === 'pvc-doors') && link.dataset.page === 'doors') {
+      link.classList.remove('text-warmgray');
+      link.classList.add('text-accent', 'font-semibold');
+    }
+  });
+</script>
+
 
   <!-- Main -->
   <section class="py-16 md:py-24">
@@ -189,39 +215,45 @@
 
   <!-- Footer -->
   <footer class="bg-charcoal text-white py-12">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="grid md:grid-cols-4 gap-8 mb-8">
-        <div>
-          <img src="images/logo.png" alt="KitchenFaces" class="h-10 mb-4 brightness-0 invert">
-          <p class="text-gray-400 text-sm">Your local kitchen makeover specialist serving Cannock, Norton Canes and surrounding areas.</p>
-        </div>
-        <div>
-          <h4 class="font-semibold mb-4">Quick Links</h4>
-          <ul class="space-y-2 text-gray-400 text-sm">
-            <li><a href="index.html" class="hover:text-white transition">Home</a></li>
-            <li><a href="gallery.html" class="hover:text-white transition">Gallery</a></li>
-            <li><a href="vinyl-doors.html" class="hover:text-white transition">Vinyl Doors</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold mb-4">Contact</h4>
-          <ul class="space-y-2 text-gray-400 text-sm">
-            <li><a href="tel:01213188989" class="hover:text-white transition">0121 318 8989</a></li>
-            <li>Norton Canes, WS11</li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold mb-4">Get Started</h4>
-          <a href="index.html#quote" class="inline-block bg-accent text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-opacity-90 transition">
-            Free Quote
-          </a>
-        </div>
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid md:grid-cols-4 gap-8 mb-8">
+      <div>
+        <img src="images/logo.png" alt="KitchenFaces" class="h-10 mb-4 brightness-0 invert">
+        <p class="text-gray-400 text-sm">Your local kitchen makeover specialist serving Cannock, Norton Canes and surrounding areas.</p>
       </div>
-      <div class="border-t border-white/10 pt-8 text-center text-gray-400 text-sm">
-        <p>© 2026 KitchenFaces. All rights reserved.</p>
+      <div>
+        <h4 class="font-semibold mb-4">Quick Links</h4>
+        <ul class="space-y-2 text-gray-400 text-sm">
+          <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+          <li><a href="gallery.html" class="hover:text-white transition">Gallery</a></li>
+          <li><a href="vinyl-doors.html" class="hover:text-white transition">Vinyl Doors</a></li>
+          <li><a href="pvc-doors.html" class="hover:text-white transition">PVC Edged</a></li>
+          <li><a href="pricing.html" class="hover:text-white transition">Pricing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4">Contact</h4>
+        <ul class="space-y-2 text-gray-400 text-sm">
+          <li><a href="tel:01213188989" class="hover:text-white transition">0121 318 8989</a></li>
+          <li>Norton Canes, WS11</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-4">Get Started</h4>
+        <a href="brochure.html" class="inline-block bg-accent text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-opacity-90 transition mb-2">
+          Get Brochure
+        </a><br>
+        <a href="index.html#quote" class="inline-block border border-white/30 text-white px-6 py-3 rounded-full text-sm font-medium hover:border-white transition mt-2">
+          Free Quote
+        </a>
       </div>
     </div>
-  </footer>
+    <div class="border-t border-white/10 pt-8 text-center text-gray-400 text-sm">
+      <p>© 2026 KitchenFaces. All rights reserved. | 1 The Stables, Norton Canes, WS11 9UT</p>
+    </div>
+  </div>
+</footer>
+
 
   <script>
     document.getElementById('menu-btn').addEventListener('click', function() {
