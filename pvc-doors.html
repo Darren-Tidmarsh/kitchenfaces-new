@@ -102,23 +102,6 @@
   </a>
 </div>
 
-<script>
-  // Mobile menu toggle
-  document.getElementById('menu-btn').addEventListener('click', function() {
-    document.getElementById('mobile-nav').classList.toggle('hidden');
-  });
-  
-  // Highlight active page
-  const currentPage = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
-  document.querySelectorAll('.nav-link').forEach(link => {
-    if (link.dataset.page === currentPage || 
-        (currentPage === 'vinyl-doors' || currentPage === 'pvc-doors') && link.dataset.page === 'doors') {
-      link.classList.remove('text-warmgray');
-      link.classList.add('text-accent', 'font-semibold');
-    }
-  });
-</script>
-
 <!-- Sticky Mobile CTA -->
 <div class="md:hidden fixed bottom-0 left-0 right-0 bg-charcoal border-t border-white/10 z-50 flex">
   <a href="tel:01213188989" class="flex-1 flex items-center justify-center gap-2 py-4 text-white font-semibold text-base hover:bg-sage transition">
@@ -129,41 +112,6 @@
     Free Quote
   </a>
 </div>
-
-<script>
-  // Mobile menu toggle
-  document.getElementById('menu-btn').addEventListener('click', function() {
-    document.getElementById('mobile-nav').classList.toggle('hidden');
-  });
-  
-  // Highlight active page
-  const currentPage = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
-  document.querySelectorAll('.nav-link').forEach(link => {
-    if (link.dataset.page === currentPage || 
-        (currentPage === 'vinyl-doors' || currentPage === 'pvc-doors') && link.dataset.page === 'doors') {
-      link.classList.remove('text-warmgray');
-      link.classList.add('text-accent', 'font-semibold');
-    }
-  });
-</script>
-
-<script>
-  // Mobile menu toggle
-  document.getElementById('menu-btn').addEventListener('click', function() {
-    document.getElementById('mobile-nav').classList.toggle('hidden');
-  });
-  
-  // Highlight active page
-  const currentPage = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
-  document.querySelectorAll('.nav-link').forEach(link => {
-    if (link.dataset.page === currentPage || 
-        (currentPage === 'vinyl-doors' || currentPage === 'pvc-doors') && link.dataset.page === 'doors') {
-      link.classList.remove('text-warmgray');
-      link.classList.add('text-accent', 'font-semibold');
-    }
-  });
-</script>
-
 
   <!-- Hero with images -->
   <section class="bg-charcoal text-white">
@@ -525,9 +473,6 @@
   </div>
 </footer>
 
-
-
-
   <!-- Lightbox Modal -->
   <div id="lightbox" class="fixed inset-0 bg-black/90 z-[100] hidden items-center justify-center">
     <button id="lb-close" class="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 transition z-10">&times;</button>
@@ -540,73 +485,8 @@
     <button id="lb-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-5xl hover:text-gray-300 transition p-4">›</button>
   </div>
 
-  <script>
-    // Mobile menu
-    document.getElementById('menu-btn').addEventListener('click', function() {
-      document.getElementById('mobile-nav').classList.toggle('hidden');
-    });
+  
 
-    // Lightbox
-    const lightbox = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lb-img');
-    const lbCaption = document.getElementById('lb-caption');
-    const lbCounter = document.getElementById('lb-counter');
-    let currentImages = [];
-    let currentIndex = 0;
-
-    function openLightbox(images, index) {
-      currentImages = images;
-      currentIndex = index;
-      showImage();
-      lightbox.classList.remove('hidden');
-      lightbox.classList.add('flex');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-      lightbox.classList.add('hidden');
-      lightbox.classList.remove('flex');
-      document.body.style.overflow = '';
-    }
-
-    function showImage() {
-      const item = currentImages[currentIndex];
-      lbImg.src = item.src;
-      lbCaption.textContent = item.name;
-      lbCounter.textContent = `${currentIndex + 1} of ${currentImages.length}`;
-    }
-
-    function nextImage() {
-      currentIndex = (currentIndex + 1) % currentImages.length;
-      showImage();
-    }
-
-    function prevImage() {
-      currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-      showImage();
-    }
-
-    // Collect all swatches
-    const colourSwatches = document.querySelectorAll('.colour-swatch');
-    const colourImages = [];
-    colourSwatches.forEach((swatch, i) => {
-      const img = swatch.querySelector('img');
-      const name = swatch.getAttribute('title') || img.alt;
-      colourImages.push({ src: img.src, name: name });
-      swatch.addEventListener('click', () => openLightbox(colourImages, i));
-    });
-
-    document.getElementById('lb-close').addEventListener('click', closeLightbox);
-    document.getElementById('lb-next').addEventListener('click', nextImage);
-    document.getElementById('lb-prev').addEventListener('click', prevImage);
-    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
-    document.addEventListener('keydown', (e) => {
-      if (lightbox.classList.contains('hidden')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowRight') nextImage();
-      if (e.key === 'ArrowLeft') prevImage();
-    });
-  </script>
-
+  <script src="js/mobile-nav.js"></script>
 </body>
 </html>

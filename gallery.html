@@ -181,23 +181,6 @@
   </a>
 </div>
 
-<script>
-  // Mobile menu toggle
-  document.getElementById('menu-btn').addEventListener('click', function() {
-    document.getElementById('mobile-nav').classList.toggle('hidden');
-  });
-  
-  // Highlight active page
-  const currentPage = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
-  document.querySelectorAll('.nav-link').forEach(link => {
-    if (link.dataset.page === currentPage || 
-        (currentPage === 'vinyl-doors' || currentPage === 'pvc-doors') && link.dataset.page === 'doors') {
-      link.classList.remove('text-warmgray');
-      link.classList.add('text-accent', 'font-semibold');
-    }
-  });
-</script>
-
 <!-- Sticky Mobile CTA -->
 <div class="md:hidden fixed bottom-0 left-0 right-0 bg-charcoal border-t border-white/10 z-50 flex">
   <a href="tel:01213188989" class="flex-1 flex items-center justify-center gap-2 py-4 text-white font-semibold text-base hover:bg-sage transition">
@@ -208,41 +191,6 @@
     Free Quote
   </a>
 </div>
-
-<script>
-  // Mobile menu toggle
-  document.getElementById('menu-btn').addEventListener('click', function() {
-    document.getElementById('mobile-nav').classList.toggle('hidden');
-  });
-  
-  // Highlight active page
-  const currentPage = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
-  document.querySelectorAll('.nav-link').forEach(link => {
-    if (link.dataset.page === currentPage || 
-        (currentPage === 'vinyl-doors' || currentPage === 'pvc-doors') && link.dataset.page === 'doors') {
-      link.classList.remove('text-warmgray');
-      link.classList.add('text-accent', 'font-semibold');
-    }
-  });
-</script>
-
-<script>
-  // Mobile menu toggle
-  document.getElementById('menu-btn').addEventListener('click', function() {
-    document.getElementById('mobile-nav').classList.toggle('hidden');
-  });
-  
-  // Highlight active page
-  const currentPage = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
-  document.querySelectorAll('.nav-link').forEach(link => {
-    if (link.dataset.page === currentPage || 
-        (currentPage === 'vinyl-doors' || currentPage === 'pvc-doors') && link.dataset.page === 'doors') {
-      link.classList.remove('text-warmgray');
-      link.classList.add('text-accent', 'font-semibold');
-    }
-  });
-</script>
-
 
   <!-- Hero -->
   <section class="bg-charcoal text-white py-16">
@@ -469,29 +417,8 @@
   </div>
 </footer>
 
+  
 
-
-
-  <script>
-    // Mobile menu
-    document.getElementById('menu-btn').addEventListener('click', function() {
-      document.getElementById('mobile-nav').classList.toggle('hidden');
-    });
-
-    // Before/After sliders
-    document.querySelectorAll('[data-slider]').forEach(slider => {
-      const range = slider.querySelector('input[type="range"]');
-      const afterImg = slider.querySelector('.after-img');
-      const handle = slider.querySelector('.slider-handle');
-      
-      range.addEventListener('input', (e) => {
-        const value = e.target.value;
-        const rightClip = 100 - value;
-        afterImg.style.clipPath = `inset(0 ${rightClip}% 0 0)`;
-        handle.style.left = value + '%';
-      });
-    });
-  </script>
-
+  <script src="js/mobile-nav.js"></script>
 </body>
 </html>
