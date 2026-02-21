@@ -420,5 +420,23 @@
   
 
   <script src="js/mobile-nav.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.querySelectorAll(".ba-slider input[type=\"range\"]").forEach(function(range) {
+        const slider = range.closest(".ba-slider");
+        const afterImg = slider.querySelector(".after-img");
+        const handle = slider.querySelector(".slider-handle");
+        function update(value) {
+          const percent = value / 100;
+          afterImg.style.clipPath = "inset(0 " + (100 - percent * 100) + "% 0 0)";
+          handle.style.left = percent * 100 + "%";
+        }
+        range.addEventListener("input", function(e) {
+          update(parseFloat(e.target.value));
+        });
+        update(50);
+      });
+    });
+  </script>
 </body>
 </html>
